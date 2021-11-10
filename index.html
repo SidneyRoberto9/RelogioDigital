@@ -7,8 +7,49 @@
     <title>Relogio Digital</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/toggleButton.css">
-    <script type="text/javascript" src="js/hora.js"></script>
-    <script type="text/javascript" src="js/Fullscreen.js"></script>
+    <script>
+        setInterval(function () {
+
+            let new_hour = new Date();
+            let hour = new_hour.getHours();
+            let min = new_hour.getMinutes();
+            let sec = new_hour.getSeconds();
+
+            if (hour < 10)
+                hour = "0" + hour;
+            if (min < 10)
+                min = "0" + min;
+            if (sec < 10)
+                sec = "0" + sec;
+
+            document.getElementById("hour").innerHTML = hour;
+            document.getElementById("min").innerHTML = min;
+            document.getElementById("sec").innerHTML = sec;
+
+        }, 1000)
+    </script>
+    <script>
+        function toggleFullScreen() {
+            if ((document.fullScreenElement && document.fullScreenElement !== null) ||
+                (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+                if (document.documentElement.requestFullScreen) {
+                    document.documentElement.requestFullScreen();
+                } else if (document.documentElement.mozRequestFullScreen) {
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.webkitRequestFullScreen) {
+                    document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+                }
+            } else {
+                if (document.cancelFullScreen) {
+                    document.cancelFullScreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -27,12 +68,9 @@
         </span>
     </div>
 
-
-
     <div class="fs">
         <button id="btnfs" onclick="toggleFullScreen()"></button>
     </div>
-
 
 </body>
 
