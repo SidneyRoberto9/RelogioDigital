@@ -3,32 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relogio Digital</title>
     <link rel="stylesheet" href="CSS/style.css">
-    <script>
-        setInterval(function () {
-
-            let new_hour = new Date();
-            let hour = new_hour.getHours();
-            let min = new_hour.getMinutes();
-            let sec = new_hour.getSeconds();
-
-            if (hour < 10)
-                hour = "0" + hour;
-            if (min < 10)
-                min = "0" + min;
-            if (sec < 10)
-                sec = "0" + sec;
-
-            document.getElementById("hour").innerHTML = hour;
-            document.getElementById("min").innerHTML = min;
-            document.getElementById("sec").innerHTML = sec;
-
-        }, 1000)
-    </script>
+    <link rel="stylesheet" href="CSS/toggleButton.css">
+    <script type="text/javascript" src="js/hora.js"></script>
+    <script type="text/javascript" src="js/Fullscreen.js"></script>
 </head>
 
 <body>
+
     <div id="clock">
         <div id="time">
             <div> <span id="hour">00</span> <span>Hour</span> </div>
@@ -36,6 +20,20 @@
             <div> <span id="sec">00</span> <span>Seconds</span> </div>
         </div>
     </div>
+    <div id="bt">
+        <span class="btn btn-1">
+            <input type="checkbox" name="" id="switch" onclick="toggleFullScreen()">
+            <label for="switch"></label>
+        </span>
+    </div>
+
+
+
+    <div class="fs">
+        <button id="btnfs" onclick="toggleFullScreen()"></button>
+    </div>
+
+
 </body>
 
 </html>

@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap');
 
 *{
+    background-color: black;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
 }
 
-
-body{
+#clock{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 86vh;
     background: black;
 }
 
@@ -80,3 +80,4 @@ body{
 #clock #time div:last-child span{
     background: #ff1fa9;
 }
+
