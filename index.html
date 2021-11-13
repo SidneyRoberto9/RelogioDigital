@@ -7,67 +7,26 @@
     <title>Relogio Digital</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/toggleButton.css">
-    <script>
-        setInterval(function () {
-
-            let new_hour = new Date();
-            let hour = new_hour.getHours();
-            let min = new_hour.getMinutes();
-            let sec = new_hour.getSeconds();
-
-            if (hour < 10)
-                hour = "0" + hour;
-            if (min < 10)
-                min = "0" + min;
-            if (sec < 10)
-                sec = "0" + sec;
-
-            document.getElementById("hour").innerHTML = hour;
-            document.getElementById("min").innerHTML = min;
-            document.getElementById("sec").innerHTML = sec;
-
-        }, 1000)
-    </script>
-    <script>
-        function toggleFullScreen() {
-            if ((document.fullScreenElement && document.fullScreenElement !== null) ||
-                (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-                if (document.documentElement.requestFullScreen) {
-                    document.documentElement.requestFullScreen();
-                } else if (document.documentElement.mozRequestFullScreen) {
-                    document.documentElement.mozRequestFullScreen();
-                } else if (document.documentElement.webkitRequestFullScreen) {
-                    document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-                }
-            } else {
-                if (document.cancelFullScreen) {
-                    document.cancelFullScreen();
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen();
-                } else if (document.webkitCancelFullScreen) {
-                    document.webkitCancelFullScreen();
-                }
-            }
-        }
-    </script>
+    <script type="text/javascript" src="JS/functions.js"></script>
+    <script type="text/javascript" src="JS/clock.js"></script>
 </head>
 
 <body>
-
-    <div id="clock">
-        <div id="time">
-            <div> <span id="hour">00</span> <span>Hour</span> </div>
-            <div> <span id="min">00</span> <span>Minutes</span> </div>
-            <div> <span id="sec">00</span> <span>Seconds</span> </div>
+    <header>
+        <div id="clock">
+            <div id="time">
+                <div> <span id="hour">00</span> <span>Hour</span> </div>
+                <div> <span id="min">00</span> <span>Minutes</span> </div>
+                <div> <span id="sec">00</span> <span>Seconds</span> </div>
+            </div>
         </div>
-    </div>
-    <div id="bt">
-        <span class="btn btn-1">
-            <input type="checkbox" name="" id="switch" onclick="toggleFullScreen()">
-            <label for="switch"></label>
-        </span>
-    </div>
-
+        <div id="fullscreanbtn">
+            <span class="btn btn-1">
+                <input type="checkbox" name="" id="switch" onclick="toggleFullScreen()">
+                <label for="switch"></label>
+            </span>
+        </div>
+    </header>
 </body>
 
 </html>
